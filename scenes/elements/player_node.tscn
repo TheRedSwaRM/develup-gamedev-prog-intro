@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj81imxp5anf8"]
+
+[ext_resource type="Script" path="res://scenes/elements/player_body.gd" id="1_73fm1"]
+[ext_resource type="Texture2D" uid="uid://dbdcvswkyl7fb" path="res://assets/player/playerGrey_swim1.png" id="1_qeily"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0msg"]
+radius = 24.0
+height = 48.0
+
+[node name="PlayerNode" type="Node2D"]
+
+[node name="PlayerBody" type="CharacterBody2D" parent="."]
+script = ExtResource("1_73fm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerBody"]
+texture = ExtResource("1_qeily")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
+shape = SubResource("CapsuleShape2D_s0msg")

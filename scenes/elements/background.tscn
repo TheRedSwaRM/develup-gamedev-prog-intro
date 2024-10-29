@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8fejn3vvkwvs"]
+
+[ext_resource type="Texture2D" uid="uid://bwe3574lb4mvs" path="res://assets/background/bg_1.png" id="1_omqfw"]
+[ext_resource type="Texture2D" uid="uid://b62x6dlw28mqy" path="res://assets/background/bg_2.png" id="2_b745y"]
+[ext_resource type="Texture2D" uid="uid://d72rxapb83l2" path="res://assets/background/bg_3.png" id="3_jn8p2"]
+
+[node name="BackgroundNode" type="Node2D"]
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.8, 1.35)
+texture = ExtResource("1_omqfw")
+
+[node name="Background2_1" type="Sprite2D" parent="."]
+position = Vector2(584, 320)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("2_b745y")
+
+[node name="Background2_2" type="Sprite2D" parent="."]
+position = Vector2(-280, 320)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("2_b745y")
+
+[node name="Background2_3" type="Sprite2D" parent="."]
+position = Vector2(1448, 320)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("2_b745y")
+
+[node name="Foreground" type="Sprite2D" parent="."]
+position = Vector2(432, 324)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jn8p2")
+
+[node name="Foreground2" type="Sprite2D" parent="."]
+position = Vector2(1296, 324)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jn8p2")
