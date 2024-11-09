@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 
+var PipeNode = preload("res://scenes/elements/pipe_node.tscn")
+var score = 0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -14,12 +14,23 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	# 
 	move_and_slide()
+
+
+
+func _on_pipe_resetter_body_entered(body: Node2D) -> void:
+	if body.name == "Pipes":
+		body.global_position = Vector2(1248, randf_range(270, 370))
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	print(area.name)
+	if area.name == "ScoreArea":
+		score = score + 1
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	print(body.name)
+	if body.name in ["Pipes", "Floor"]:
+		get_tree().reload_current_scene()

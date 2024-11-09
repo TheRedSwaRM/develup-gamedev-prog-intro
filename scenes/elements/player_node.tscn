@@ -1,19 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj81imxp5anf8"]
+[gd_scene load_steps=5 format=3 uid="uid://dthi3ln7i7a63"]
 
-[ext_resource type="Script" path="res://scenes/elements/player_body.gd" id="1_73fm1"]
-[ext_resource type="Texture2D" uid="uid://dbdcvswkyl7fb" path="res://assets/player/playerGrey_swim1.png" id="1_qeily"]
+[ext_resource type="Script" path="res://scenes/elements/player_body.gd" id="1_qqgpd"]
+[ext_resource type="Texture2D" uid="uid://dbdcvswkyl7fb" path="res://assets/player/playerGrey_swim1.png" id="2_okyd2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0msg"]
-radius = 24.0
-height = 48.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_540uq"]
+radius = 18.0
+height = 36.0
 
-[node name="PlayerNode" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0d41"]
+radius = 19.0
+height = 38.0
 
-[node name="PlayerBody" type="CharacterBody2D" parent="."]
-script = ExtResource("1_73fm1")
+[node name="PlayerBody" type="CharacterBody2D"]
+script = ExtResource("1_qqgpd")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerBody"]
-texture = ExtResource("1_qeily")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 2)
+texture = ExtResource("2_okyd2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
-shape = SubResource("CapsuleShape2D_s0msg")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_540uq")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_d0d41")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

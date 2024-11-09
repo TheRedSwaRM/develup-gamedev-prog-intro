@@ -5,7 +5,7 @@ size = Vector2(1152, 32)
 
 [node name="FloorNode" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("RectangleShape2D_nq7yp")

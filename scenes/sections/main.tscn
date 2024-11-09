@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://uyrd8hpq7kx7"]
+
+[ext_resource type="PackedScene" uid="uid://b8fejn3vvkwvs" path="res://scenes/elements/background.tscn" id="1_0tono"]
+[ext_resource type="PackedScene" uid="uid://b027bheloe4m4" path="res://scenes/elements/floor_node.tscn" id="2_3scso"]
+[ext_resource type="PackedScene" uid="uid://dthi3ln7i7a63" path="res://scenes/elements/player_node.tscn" id="3_3jpnj"]
+[ext_resource type="PackedScene" uid="uid://b8ofe6ehacxci" path="res://scenes/elements/pipe_node.tscn" id="4_6d1fs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq82r"]
+size = Vector2(32, 688)
+
+[node name="Main" type="Node2D"]
+
+[node name="BackgroundNode" parent="." instance=ExtResource("1_0tono")]
+
+[node name="FloorNode" parent="." instance=ExtResource("2_3scso")]
+position = Vector2(576, 664)
+
+[node name="PlayerBody" parent="." instance=ExtResource("3_3jpnj")]
+position = Vector2(576, 320)
+
+[node name="PipeResetter" type="Area2D" parent="PlayerBody"]
+position = Vector2(-720, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody/PipeResetter"]
+shape = SubResource("RectangleShape2D_kq82r")
+
+[node name="Pipes" type="Node" parent="."]
+
+[node name="PipeNode" parent="Pipes" instance=ExtResource("4_6d1fs")]
+position = Vector2(1248, 320)
+
+[node name="PipeNode2" parent="Pipes" instance=ExtResource("4_6d1fs")]
+position = Vector2(1440, 336)
+
+[node name="PipeNode3" parent="Pipes" instance=ExtResource("4_6d1fs")]
+position = Vector2(1632, 296)
+
+[node name="PipeNode4" parent="Pipes" instance=ExtResource("4_6d1fs")]
+position = Vector2(1824, 304)
+
+[node name="PipeNode5" parent="Pipes" instance=ExtResource("4_6d1fs")]
+position = Vector2(2016, 344)
+
+[node name="PipeNode6" parent="Pipes" instance=ExtResource("4_6d1fs")]
+position = Vector2(2208, 352)
+
+[node name="PipeNode7" parent="Pipes" instance=ExtResource("4_6d1fs")]
+position = Vector2(2400, 320)
+
+[connection signal="body_entered" from="PlayerBody/PipeResetter" to="PlayerBody" method="_on_pipe_resetter_body_entered"]
