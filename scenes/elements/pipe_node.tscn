@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b8ofe6ehacxci"]
+[gd_scene load_steps=8 format=4 uid="uid://b8ofe6ehacxci"]
 
 [ext_resource type="Texture2D" uid="uid://xkxi1veqgwgm" path="res://assets/tileset.png" id="1_alkhq"]
 [ext_resource type="Script" path="res://scenes/elements/pipe_node.gd" id="1_o1nl2"]
@@ -273,14 +273,11 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_m1qm8")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4da8"]
-size = Vector2(64, 2624)
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n30e3"]
-polygon = PackedVector2Array(-32, -64, -32, -1088, 32, -1088, 32, -72, 32, -72, 32, -64)
+polygon = PackedVector2Array(-24, -64, -32, -72, -32, -1088, 32, -1088, 32, -80, 32, -72, 24, -64)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nl4y2"]
-polygon = PackedVector2Array(-32, 64, 32, 64, 32, 1088, -32, 1088)
+polygon = PackedVector2Array(-32, 72, -24, 64, 24, 64, 32, 72, 32, 1088, -32, 1088)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjjo1"]
 size = Vector2(32, 128)
@@ -293,24 +290,24 @@ script = ExtResource("1_o1nl2")
 [node name="TopPipe" type="TileMapLayer" parent="Pipes"]
 position = Vector2(32, -64)
 rotation = 3.14159
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAIAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAcAAAAAAAEAAAAAAAkAAAAAAAEAAAAAAAsAAAAAAAEAAAAAAA0AAAAAAAEAAAAAAA8AAAAAAAEAAAAAAA4AAAAAAAIAAAAAAAwAAAAAAAIAAAAAAAoAAAAAAAIAAAAAAAgAAAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAMAAAAAAAEAAAAAAAQAAAAAAAIAAAAAAAUAAAAAAAMAAAAAAAQAAAAAAAQAAAAAAAUAAAAAAAUAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAcAAAAAAAQAAAAAAAkAAAAAAAQAAAAAAAsAAAAAAAQAAAAAAA0AAAAAAAQAAAAAAA8AAAAAAAQAAAAAAA4AAAAAAAUAAAAAAAwAAAAAAAUAAAAAAAoAAAAAAAUAAAAAAAgAAAAAAAUAAAA=")
 tile_set = SubResource("TileSet_tsahu")
 
-[node name="TopPipeCollision" type="CollisionShape2D" parent="Pipes"]
+[node name="TopPipeCollision" type="CollisionPolygon2D" parent="Pipes"]
 position = Vector2(0, -1376)
-shape = SubResource("RectangleShape2D_e4da8")
+polygon = PackedVector2Array(-32, 1304, -24, 1312, 24, 1312, 32, 1304, 32, 288, -32, 288)
 
 [node name="TopLightOccluder" type="LightOccluder2D" parent="Pipes"]
 occluder = SubResource("OccluderPolygon2D_n30e3")
 
 [node name="BottomPipe" type="TileMapLayer" parent="Pipes"]
 position = Vector2(-32, 64)
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAIAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAcAAAAAAAEAAAAAAAkAAAAAAAEAAAAAAAsAAAAAAAEAAAAAAA0AAAAAAAEAAAAAAA8AAAAAAAEAAAAAAA4AAAAAAAIAAAAAAAwAAAAAAAIAAAAAAAoAAAAAAAIAAAAAAAgAAAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAMAAAAAAAEAAAAAAAQAAAAAAAIAAAAAAAUAAAAAAAMAAAAAAAQAAAAAAAQAAAAAAAUAAAAAAAUAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAcAAAAAAAQAAAAAAAkAAAAAAAQAAAAAAAsAAAAAAAQAAAAAAA0AAAAAAAQAAAAAAA8AAAAAAAQAAAAAAA4AAAAAAAUAAAAAAAwAAAAAAAUAAAAAAAoAAAAAAAUAAAAAAAgAAAAAAAUAAAA=")
 tile_set = SubResource("TileSet_tsahu")
 
-[node name="BottomPipeCollision" type="CollisionShape2D" parent="Pipes"]
+[node name="BottomPipeCollision" type="CollisionPolygon2D" parent="Pipes"]
 position = Vector2(0, 1376)
-shape = SubResource("RectangleShape2D_e4da8")
+polygon = PackedVector2Array(-32, -1304, -24, -1312, 24, -1312, 32, -1304, 32, -288, -32, -288)
 
 [node name="BottomLightOccluder" type="LightOccluder2D" parent="Pipes"]
 occluder = SubResource("OccluderPolygon2D_nl4y2")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dolh2sf2dp4s4"
+path="res://.godot/imported/Mystical Pixels - Chiptune8-bit - Royalty Free Music.mp3-777de6d48648a487ea67b95d776de51a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Mystical Pixels - Chiptune8-bit - Royalty Free Music.mp3"
+dest_files=["res://.godot/imported/Mystical Pixels - Chiptune8-bit - Royalty Free Music.mp3-777de6d48648a487ea67b95d776de51a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
